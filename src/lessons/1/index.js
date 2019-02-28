@@ -1,10 +1,4 @@
 'use strict'
-/* Syntax + block scoping intro */
-// let x = 1;
-// const y = 2;
-////const y; Error !!!
-// console.log(x, y);
-
 // function withBlockScope() {
 //     let tst = 1;
 //     if (true) {
@@ -70,7 +64,6 @@
 // }
 // console.log(inside);
 
-// !! madke in console or disable webpack
 /* const and let не создают глобальных переменных */
 // let globvar = 1;
 // let globfn = function() {};
