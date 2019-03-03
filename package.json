@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "browser-sync start -s \"src\" --files \"src\"",
-    "ls1": "webpack-dev-server ./lesson_1/index.js -o dist/bundle.js --mode=development"
-  },
+    "serve": "browser-sync start -s \"src\" --files \"src\""  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tadjo/es6.git"
