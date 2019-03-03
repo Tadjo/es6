@@ -1,4 +1,4 @@
-# This project contains drafts for GB ES6 cource
+# :mortar_board:This project contains drafts for GB ES6 course.:mortar_board:
 
 ## How to run
 Run `npm run serve`
