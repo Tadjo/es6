@@ -1,6 +1,9 @@
 const x = 1;
 const y = 1;
-const point = {x, y}; // Тоже замое что и  {x: x, y: y}
+function foo() {/* body */}
+const point = {x, y, foo};
+// Тоже замое что и
+const point = {x: x, y: y, foo: foo}
 
 const obj1 = {
     func() {
@@ -32,8 +35,35 @@ const object = {
     ['dinamic' + '_func']() {/*  */}
 }
 
-// proto
+// assign
+const target = {x: 1, z: 2};
+const source = {y: 2, z: 3};
+Object.assign(target, source); // {x: 1, y: 2, z: 3(overrided)};
 
+// getOwnPropertySymbols
+Object.getOwnPropertySymbols(JSON) //[Symbol(Symbol.toStringTag)]
+
+// Object is
+NaN === NaN; // false
+Object.is(NaN, NaN); // true
+
+[1, 2, NaN].find(Object.is.bind(null, NaN)); // 2
+
+
+
+// proto
+const ancestor = {getMe: 'yep!!'};
+const descendant = {};
+descendant.__proto__ = ancestor;
+console.log(descendant.getMe); // yep!!
+// Или в литералах
+const ancestor = {getMe: 'yep!!'};
+const descendant = {__proto__: ancestor};
+console.log(descendant.getMe); // yep!!
+// __proto__ не работает для динамических свойств
+const ancestor = {getMe: 'yep!!'};
+const descendant = {['__proto__']: ancestor};
+console.log(descendant.getMe); // undefined!!
 
 
 // Symbol.hasInstance
@@ -70,4 +100,9 @@ console.log(String(course)); // tick tack
 
 
 // Symbol.toStringtag
+function customArray() {
+    Array.apply(this);
+}
+customArray.prototype[Symbol.toStringTag] = function() { return 'customArray' }
+console.log(Object.prototype.toString.call(new customArray())) //"[object customArray]"
 
