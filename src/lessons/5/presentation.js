@@ -1,36 +1,3 @@
-const library = (function(delta) {
-    const res = Symbol('res');
-    const step = Symbol('sum');
-    return {
-        [res]: 0,
-        [step]: delta,
-        add() {
-            return this[res] + this[step];
-        },
-    };
-})(2);
-library.add(); // 2
-console.log(library); // { add: ƒ add(), Symbol(res): 0, Symbol(sum): 2 }
-Reflect.ownKeys(library); // ["add", Symbol(res), Symbol(sum)]
-
-() => {
-    /* body */
-}; // без параметров
-x => {
-    /* body */
-}; // один параметр
-(x, y) => {
-    /* body */
-}; // несколько параметров
-
-/* Если тело функции представляет собой expression фигурные скобки можно пропустить*/
-(x, y) => {
-    return x * y;
-}; // несколько параметров
-(x, y) => x * y; // несколько параметров
-
-/* Если нужно вернуть объект то его нужно обернуть в скобки */
-() => ({ x: 1, y: 1 });
 
 Timer.prototype.start = function() {
     this.started = true; // B
@@ -97,12 +64,12 @@ const copy = [...source]; // [1, 2], source !== copy
 
 let title;
 ({ title: title } = { id: 1, title: 'ES6' }); // title = ES6
+
 // короткая запись(тоже самое что и предыдущее)
 ({ title } = { id: 1, title: 'ES6' }); // title = ES6
+
 // вложенность
-({
-    title: { title },
-} = { id: 1, title: 'ES6', lesson: { id: 6, title: 'Destructing' } }); // title = 'Destructing'
+({ title: { title } } = { id: 1, title: 'ES6', lesson: { id: 6, title: 'Destructing' } }); // title = 'Destructing'
 ({ title } = null); // TypeError
 
 let x;
