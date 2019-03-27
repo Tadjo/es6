@@ -4,6 +4,7 @@
 // import './tdz.js';
 // import './immutable.js';
 // import './functions.js';
+// import './params.js';
 // import './global.js';
 
 // change index.js script type before run
@@ -15,7 +16,7 @@
 // console.log(window.globvar, window.globfn, window.globconst);
 // console.groupEnd();
 
-// /* function declaration не создают глобальных переменных  */
+// /* function declaration создают глобальных переменных  */
 // console.group('functions');
 // function glob() {};
 // console.log(window.glob);
