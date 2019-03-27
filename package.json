@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "browser-sync start -s \"src\" --files \"src\""  },
+    "serve": "browser-sync start -s \"src\" --files \"src\""
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tadjo/es6.git"
