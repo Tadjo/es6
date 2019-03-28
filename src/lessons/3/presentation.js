@@ -51,16 +51,29 @@ String(sym); // Symbol(conversion)
 Object.prototype.toString.call(sym); // '[object Symbol]'
 
 
+// Пояснение
 const symbol = Symbol('test');
-window.checkSymbol = function(symbolFromFrame) {
-    console.log(symbolFromFrame === symbol); // false
+window.check = function(object) {
+    const frame = window.frames[0];
+    console.log(object instanceof Object); // false
+    console.log(frame.Array === Array); // false
+    console.log(frame.Symbol === Symbol); // false
+    console.log(frame.Symbol('test') === symbol); // false
 }
 const iframe = document.createElement('iframe');
-iframe.srcdoc = "<script>window.parent.checkSymbol(Symbol('test'))</script>";
+iframe.srcdoc = "<script>window.parent.check({})</script>";
 document.body.append(iframe);
 
-/* Решение */
+
 const symbol = Symbol.for('test');
-/* ... */
-iframe.srcdoc = "<script>window.parent.checkSymbol(Symbol.for('test'))</script>"
-/* ... */
+/*  */
+window.check = function(object) {
+    /* */
+    console.log(frame.Symbol.for('test') === symbol); // true
+}
+/*  */
+
+
+
+/* Object.assign */
+Object.assign({}, {[Symbol()]: true}); // {Symbol(): true}

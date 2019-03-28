@@ -7,7 +7,7 @@
 // import './params.js';
 // import './global.js';
 
-// change index.js script type before run
+// Перед выполнением удалить type="module" для исполнения скрипта в глобальной области видимости
 /* const and let не создают глобальных переменных */
 // console.group('Let, Const');
 // let globvar = 1;
