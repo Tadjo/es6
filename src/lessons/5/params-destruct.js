@@ -7,5 +7,7 @@ function Config({ id, name } = defaultConfig) {
     this.id = id;
     this.name = name;
 }
-new Config(); // default {id: 0, name: 'My awesome config'};
-new Config({ id: 1, name: 'Custom' }); // {id: 1, name: 'Custom'};
+let config = new Config(); // default {id: 0, name: 'My awesome config'};
+console.log(config);
+config = new Config({ id: 1, name: 'Custom' }); // {id: 1, name: 'Custom'};
+console.log(config);

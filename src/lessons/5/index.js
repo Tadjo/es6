@@ -1,5 +1,5 @@
 // import './object.js';
 // import './array.js';
-import './default.js';
+// import './default.js';
 // import './assign.js';
-// import './params-destruct.js';
+import './params-destruct.js';
