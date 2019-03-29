@@ -7,4 +7,4 @@
 // import './getOwnProperty.js';
 // import './hasInstance.js';
 // import './toPrimitive.js';
-import './toStringTag.js';
+// import './toStringTag.js';
