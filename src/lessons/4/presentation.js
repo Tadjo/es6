@@ -17,7 +17,7 @@ X => {
 /*  Если нужно вернуть объект то его нужно обернуть в скобки */
 () => ({ x: 1, y: 1 });
 
-TimeRanges.prototype.start = function() {
+Timer.prototype.start = function() {
     this.started = true; // B
     setTimeout(() => {
         this.started = false; // A

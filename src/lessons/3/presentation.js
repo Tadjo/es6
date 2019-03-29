@@ -66,12 +66,12 @@ document.body.append(iframe);
 
 
 const symbol = Symbol.for('test');
-/*  */
+/* */
 window.check = function(object) {
     /* */
     console.log(frame.Symbol.for('test') === symbol); // true
 }
-/*  */
+/* */
 
 
 
