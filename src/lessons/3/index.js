@@ -4,3 +4,5 @@
 // import './conversion.js';
 // import './realm.js';
 // import './assign.js';
+// import './hasinstance.js';
+// import './toPrimitive.js';

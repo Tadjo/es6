@@ -3,4 +3,4 @@
 // import './raw.js';
 // import './formatter.js';
 // import './unicode.js';
-import './stiky.js';
+// import './stiky.js';
