@@ -66,7 +66,8 @@ map.size // 2
 map.clear();
 map.size // 0
 
-const weak = new WeakMap();
+const elements = Array(2).map(() => document.create)
+const meta = new WeakMap();
 const target = {};
 weak.set('primitive', true); // TypeError: Ключем может быть только объект
 weak.set(target, 'value');
@@ -88,7 +89,22 @@ week.size; // 7
 week.clear();
 week.size; // 0
 
+//need example for WeakSet;
+{
+    const messages = [
+        {from: 'Jhon'},
+        {from: 'Kevin'},
+        {from: 'Julia'}
+    ]
+    const caches = new WeakSet(messages);
 
-const cache = new Set();
+    function deleteMessage(mess){
+        messages.splice(messages.findIndex(value => value === mess), 1);
+    }
 
-
+    console.log(caches);
+    deleteMessage(messages[0]);
+    deleteMessage(messages[1]);
+    console.log(messages);
+    setTimeout(() => console.log(caches), 10000); // WeckSet сам удалит messages[0] и messages[1]
+}

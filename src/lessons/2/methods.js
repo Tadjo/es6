@@ -1,4 +1,4 @@
-const banana = 	"\ud83c\udf4c";
+const banana = '\ud83c\udf4c';
 const sentence = 'Bad Deadpool... Good Deadpool!';
 const log = console.log;
 /* strartWith */
@@ -13,10 +13,10 @@ log(sentence.includes('Deadpool'));
 log(sentence.includes('deadpool'));
 log(sentence.includes('Bad', 1));
 /* repeat */
-log("hey ".repeat(10));
+log('hey '.repeat(10));
 // Range Error
-"hey".repeat(-1);
-"hey".repeat(1/0);
+'hey'.repeat(-1);
+'hey'.repeat(1 / 0);
 // !!!! Before this, we need do some introduction to unicode
 /* codePointAt/fromCodePoint */
 const bananaCode = banana.codePointAt(0);

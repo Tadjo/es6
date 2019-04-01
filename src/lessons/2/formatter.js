@@ -10,9 +10,9 @@ function format(strings, ...values) {
     // const values = [].slice.call(arguments, 1);
     const parts = [];
     strings.forEach((value, i) => {
-        const part = {value: `${strings[i]}`};
+        const part = { value: `${strings[i]}` };
         const next = strings[i + 1];
-        const prevPart = parts[i-1];
+        const prevPart = parts[i - 1];
         // Если предидущая строка емела форматтер, удалить его в текущей строке
         if (prevPart && prevPart.formatter) {
             part.value = part.value.replace(formatters[prevPart.formatter].token, '');

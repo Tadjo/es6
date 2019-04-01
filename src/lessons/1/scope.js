@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 function withBlockScope() {
     let tst = 1;

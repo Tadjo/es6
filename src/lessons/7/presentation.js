@@ -76,6 +76,21 @@ myCustomArray.fill(1); // [1, 1]
 myCustomArray.length = 3; // [1, 1, empty]
 
 
+// species
+{
+    class CustomArray extends Array {}
+    const arr = new CustomArray();
+    arr.map(el => el); // новый экземпляр
+    arr instanceof CustomArray; // true
+
+    class CustomArray extends Array { static get [Symbol.species]() { return Array} }
+    // или
+    Object.defineProperty(CustomArray, Symbol.species, { value: Array});
+
+    arr instanceof CustomArray; // false, теперь map возвращает экземпляр родительского класса
+}
+
+
 
 
 
