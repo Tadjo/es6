@@ -70,8 +70,8 @@ const elements = Array(2).map(() => document.create)
 const meta = new WeakMap();
 const target = {};
 weak.set('primitive', true); // TypeError: Ключем может быть только объект
-weak.set(target, 'value');
-weak.get(target) === target; // true
+weak.set(target, true);
+console.log(weak.get(target) === target); // true
 // мы не можем очистить коллекцию
 weak.clear() //
 
@@ -96,15 +96,15 @@ week.size; // 0
         {from: 'Kevin'},
         {from: 'Julia'}
     ]
-    const caches = new WeakSet(messages);
+    const uniq = new WeakSet(messages);
 
     function deleteMessage(mess){
         messages.splice(messages.findIndex(value => value === mess), 1);
     }
 
-    console.log(caches);
+    console.log(uniq);
     deleteMessage(messages[0]);
     deleteMessage(messages[1]);
     console.log(messages);
-    setTimeout(() => console.log(caches), 10000); // WeckSet сам удалит messages[0] и messages[1]
+    setTimeout(() => console.log(uniq), 10000); // WeckSet сам удалит messages[0] и messages[1]
 }

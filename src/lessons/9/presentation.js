@@ -35,14 +35,12 @@ class Range {
         return {
             next() {
                 if (current <= to) {
-                    return {value: current++, done: false}
+                    return { value: current++, done: false };
                 } else {
-                    return {value: undefined, done: true}
+                    return { value: undefined, done: true };
                 }
-            }
-        }
+            },
+        };
     }
 }
-
 console.log(...new Range(10, 20)); // 10 11 12 13 14 15 16 17 18 19 20
-
