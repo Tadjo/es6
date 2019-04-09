@@ -19,9 +19,10 @@ log('hey '.repeat(10));
 'hey'.repeat(1 / 0);
 // !!!! Before this, we need do some introduction to unicode
 /* codePointAt/fromCodePoint */
-const bananaCode = banana.codePointAt(0);
-log(bananaCode);
-log(String.fromCodePoint(bananaCode));
+const bananaCode = banana.codePointAt(0); //127820 = ${127820..toString(16)} = 1f34c
+console.log(`\u{1f34c}`); // 🍌
+console.log(String.fromCodePoint(bananaCode)); // 🍌
+console.log(String.fromCodePoint(banana.codePointAt(1))); //"�"
 /* normolize */
 const a = banana.normalize('NFC');
 const b = banana.normalize('NFD');
