@@ -19,6 +19,7 @@ console.log(stringIterator.next());
 // {value: undefined, done: true}
 
 const mapIterator = new Map().set(1, 'hello')[Symbol.iterator]();
+mapIterator.
 console.log(mapIterator.next());
 console.log(mapIterator.next());
 // {value: [1, hello], done: false}

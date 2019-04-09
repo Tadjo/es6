@@ -1,4 +1,4 @@
-class Range {
+class Range1 {
     constructor(from, to) {
         this.from = from;
         this.to = to;
@@ -18,7 +18,7 @@ class Range {
     }
 }
 
-class Range {
+class Range2 {
     constructor(from, to) {
         this.from = from;
         this.to = to;
@@ -36,12 +36,9 @@ class Range {
     }
 }
 
-
-
-
 // or
 
-class Range {
+class Range3 {
     constructor(from, to) {
         this.from = from;
         this.to = to;
@@ -52,4 +49,6 @@ class Range {
     }
 }
 
-console.log(...new Range(10, 20)); // 10 11 12 13 14 15 16 17 18 19 20
+console.log('%cRande1: ', 'color: green', ...new Range1(10, 20)); // 10 11 12 13 14 15 16 17 18 19 20
+console.log('%cRande2: ', 'color: green', ...new Range2(10, 20)); // 10 11 12 13 14 15 16 17 18 19 20
+console.log('%cRande3: ', 'color: green', ...new Range3(10, 20)); // 10 11 12 13 14 15 16 17 18 19 20
