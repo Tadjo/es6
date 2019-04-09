@@ -1,7 +1,7 @@
 if (1) {
     inside();
     function inside() {
-        console.log('inside')
+        console.log('inside');
     }
 }
 

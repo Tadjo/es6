@@ -5,9 +5,6 @@ const formatters = {
     },
 };
 function format(strings, ...values) {
-    // Пример без ...
-    // const strings = arguments[0];
-    // const values = [].slice.call(arguments, 1);
     const parts = [];
     strings.forEach((value, i) => {
         const part = { value: `${strings[i]}` };
@@ -24,6 +21,9 @@ function format(strings, ...values) {
                 part.value += formatters[key].handler(values[i]);
             }
         });
+        if (!part.formatter) {
+            part.value += values[i] || '';
+        }
         parts.push(part);
     });
     return parts.map(part => part.value).join('');
@@ -39,3 +39,17 @@ function formatDate(value) {
 }
 
 console.log(format`Date range is ${'2019-03-03T14:01:33.505Z'}:d - ${'2019-03-28T07:46:35.805Z'}:d`);
+
+
+
+/* Extra example*/
+function upFirst(value) {
+    return typeof value === 'string' ? value.substring(0, 1).toUpperCase() + value.substring(1) : value;
+}
+
+formatters.uppFirst = {
+    token: ':uf',
+    handler: upFirst,
+};
+
+console.log(format`My name is ${'pikachu'}:uf ｡◕‿‿◕｡ 🗲`);

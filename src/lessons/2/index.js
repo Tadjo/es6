@@ -4,3 +4,4 @@
 // import './formatter.js';
 // import './unicode.js';
 // import './stiky.js';
+// import './highlight.js';
