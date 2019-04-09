@@ -34,7 +34,7 @@ function createObservable(target) {
 }
 
 const observable = createObservable({});
-const watcher = observable.watch$('x', (prev, curr) => console.log(`Prev value: ${prev}, Curr value: ${curr}`));
+const unsubscribe = observable.watch$('x', (prev, curr) => console.log(`Prev value: ${prev}, Curr value: ${curr}`));
 observable.x = 10;
-watcher();
+unsubscribe();
 observable.x = 20;

@@ -12,12 +12,12 @@ const prx = new Proxy(source, {
     ownKeys(target) {
         return Object.keys(target).filter(key => !key.startsWith('_'));
     },
-    get(target, key) {
+    get(target, key, receiver) {
         if (key.startsWith('_')) {
             console.error('You try access private data');
             return null;
         }
-        return target[key];
+        return Reflect.get(target, key, receiver);
     },
     set(target, key, value, receiver) {
         if (key.startsWith('_')) {

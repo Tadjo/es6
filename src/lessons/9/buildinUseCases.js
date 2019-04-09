@@ -1,3 +1,5 @@
+
+/* Array.from */
 const numbers = Array.from({length: 10}).map((v, i) => i+1);
 
 /* For of */
