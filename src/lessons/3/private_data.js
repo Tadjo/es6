@@ -1,12 +1,11 @@
-const method = Symbol('method');
-const path = Symbol('path');
 const library = (function(value) {
+    const private = Symbol('private');
     return {
-        [method]: () => value,
-        [path]: './some/path/to/target',
-    }
+        [private]: value,
+        getValue() {
+            return this[private];
+        },
+    };
 })(2);
-library.method(); // 2
-library.path; // './some/path/to/target'
-console.log(library) // {add: ƒ, Symbol(res): 0, Symbol(sum): 2}
-console.log(Reflect.ownKeys(library)) // ["add", Symbol(res), Symbol(sum)]
+library.getValue(); // 2
+console.log(Reflect.ownKeys(library)); // ["getValue", Symbol(private)]

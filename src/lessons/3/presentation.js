@@ -7,33 +7,30 @@ console.log(sym === Symbol('optional string')); // false
 console.log(Symbol() === Symbol()); // false
 console.log(sym === sym); // true
 
-const publicApiSymbol = Symbol('KEY');
-const publicApiKey = 'KEY';
+const symbolKey = Symbol('KEY');
+const stringKey = 'KEY';
 const library = {
-    [publicApiSymbol]: 'es6',
-    [publicApiKey]: 'es5'
+    [symbolKey]: 'es6',
+    [stringKey]: 'es5'
 }
 // Символы предотвращают случайное либо намереное переопледеление публичных данных
 library['KEY'] = 'changed';
 library[Symbol('KEY')] = 'changed';
-console.log(library[publicApiSymbol]); // es6 - не изменился
-console.log(library[publicApiKey]); // es5 - изменился
+console.log(library[symbolKey]); // es6 - не изменился
+console.log(library[stringKey]); // es5 - изменился
 
-
-const library = (function(delta) {
-    const res = Symbol('res');
-    const step = Symbol('sum');
+const library = (function(value) {
+    const private = Symbol('private');
     return {
-        [res]: 0,
-        [step]: delta,
-        add() {
-            return this[res] + this[step];
-        }
-    }
+        [private]: value,
+        getValue() {
+            return this[private];
+        },
+    };
 })(2);
-library.add(); // 2
-console.log(library) // {add: ƒ, Symbol(res): 0, Symbol(sum): 2}
-console.log(Reflect.ownKeys(library)) // ["add", Symbol(res), Symbol(sum)]
+library.getValue(); // 2
+console.log(Reflect.ownKeys(library)); // ["getValue", Symbol(private)]
+
 
 
 // Поддерживает явное и неявное преобразование к boolean

@@ -1,10 +1,7 @@
-// import './short.js';
-// import './literal.js';
-// import './computed.js';
-// import './is.js';
 // import './assign.js';
-// import './proto.js';
+// import './computed.js';
 // import './getOwnProperty.js';
-// import './hasInstance.js';
-// import './toPrimitive.js';
-// import './toStringTag.js';
+// import './is.js';
+// import './literal.js';
+// import './proto.js';
+// import './short.js';

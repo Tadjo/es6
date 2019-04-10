@@ -1,8 +1,7 @@
-const Custom = {
-    [Symbol.hasInstance](instance) {
-        return instance.hasOwnProperty('custom') ? true : false;
+const ParentForAll = {
+    [Symbol.hasInstance](value) {
+        return true
     }
 };
-
-console.log({} instanceof Custom);
-console.log({custom: true} instanceof Custom);
+console.log({} instanceof ParentForAll); // true
+console.log(2 instanceof ParentForAll); // true

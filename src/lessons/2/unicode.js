@@ -1,5 +1,9 @@
 const log = console.log;
-const banana = 	"\ud83c\udf4c";
+const banana = '\ud83c\udf4c'; // 🍌
+const bananaCode = banana.codePointAt(0); //127820 = 127820..toString(16) = 1f34c
+console.log(`\u{1f34c}`); // 🍌
+console.log(String.fromCodePoint(bananaCode)); // 🍌
+console.log(String.fromCodePoint(banana.codePointAt(1))); //"�"
 
 console.group('match code point');
 log(String.raw`/\u{61}/.test('a'): `, /\u{61}/.test('a'));

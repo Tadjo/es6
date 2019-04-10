@@ -1,4 +1,6 @@
 
+const {x: pointX} = {x: 1, y: 2}; // pointX = 1
+
 let title;
 ({ title: title } = { id: 1, title: 'ES6' }); // title = ES6
 

@@ -2,6 +2,9 @@ const foo = ([first, second = 2]) => first + second;
 foo([1, 1]); // 2
 foo([1]); // 3
 
+
+/* Default config */
+
 const defaultConfig = { id: 0, name: 'My awesome config' };
 function Config({ id, name } = defaultConfig) {
     this.id = id;
