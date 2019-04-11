@@ -10,10 +10,6 @@ function format(strings, ...values) {
         const part = { value: `${strings[i]}` };
         const next = strings[i + 1];
         const prevPart = parts[i - 1];
-        // Если предидущая строка емела форматтер, удалить его в текущей строке
-        if (prevPart && prevPart.formatter) {
-            part.value = part.value.replace(formatters[prevPart.formatter].token, '');
-        }
         // Найти форматтер в следующей строке
         Object.keys(formatters).forEach(function(key) {
             if (next && new RegExp(`^${formatters[key].token}`).test(next)) {
@@ -21,6 +17,10 @@ function format(strings, ...values) {
                 part.value += formatters[key].handler(values[i]);
             }
         });
+        // Если предидущая строка использовала форматтер, удалить его в текущей строке
+        if (prevPart && prevPart.formatter) {
+            part.value = part.value.replace(formatters[prevPart.formatter].token, '');
+        }
         if (!part.formatter) {
             part.value += values[i] || '';
         }
