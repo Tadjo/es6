@@ -97,3 +97,9 @@ log(/^[ab\ud83c\udf4c]$/u.test(banana));
 log(/^\S$/.test(banana)); // false
 log(/^\S$/u.test(banana)); // true
 
+
+
+'\ud83c\udf4c'.length; // 2
+'\ud83c\udf4c'[0]; // "�"
+
+

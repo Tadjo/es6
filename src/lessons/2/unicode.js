@@ -1,33 +1,38 @@
 const log = console.log;
-const banana = '\ud83c\udf4c'; // 🍌
-const bananaCode = banana.codePointAt(0); //127820 = 127820..toString(16) = 1f34c
-console.log(`\u{1f34c}`); // 🍌
-console.log(String.fromCodePoint(bananaCode)); // 🍌
-console.log(String.fromCodePoint(banana.codePointAt(1))); //"�"
+const surrogate = '\ud83c\udf4c'; // 🍌
+const codePoint = '\u{1f34c}'; // 🍌
+
+console.group('codePointAt');
+const point = surrogate.codePointAt(0);
+const charCode = surrogate.charCodeAt(0);
+console.log('codePointAt: ', point);
+console.log('charCode: ', charCode);
+console.log('fromCodePoint: ', String.fromCodePoint(point)); // 🍌
+console.log('fromCodePoint index = 1: ', String.fromCodePoint(surrogate.codePointAt(1))); //"�"
+console.groupEnd();
 
 console.group('match code point');
 log(String.raw`/\u{61}/.test('a'): `, /\u{61}/.test('a'));
 log(String.raw`/\u{61}/u.test('a'): `, /\u{61}/u.test('a'));
-log(String.raw`/\ud83c/.test(banana): `, /\ud83c/.test(banana));
-log(String.raw`/\ud83c/u.test(banana): `, /\ud83c/u.test(banana));
+log(String.raw`/\ud83c/.test(surrogate): `, /\ud83c/.test(surrogate));
+log(String.raw`/\ud83c/u.test(surrogate): `, /\ud83c/u.test(surrogate));
 console.groupEnd();
 
-console.group('match for dot operator');
-log(String.raw`/^.$/.test(banana): `, /^.$/.test(banana));
-log(String.raw`/^.$/u.test(banana): `, /^.$/u.test(banana));
-log(String.raw`/\ud83c\udf4c{2}/.test(banana.repeat(2)): `, /\ud83c\udf4c{2}/.test(banana.repeat(2)));
-log(String.raw`/\ud83c\udf4c{2}/u.test(banana.repeat(2)): `, /\ud83c\udf4c{2}/u.test(banana.repeat(2)));
+console.group('match one symbol');
+log(String.raw`/^.$/.test(surrogate): `, /^.$/.test(surrogate));
+log(String.raw`/^.$/u.test(surrogate): `, /^.$/u.test(surrogate));
+log(String.raw`/^\S$/.test(surrogate): `, /^\S$/.test(surrogate));
+log(String.raw`/^\S$/u.test(surrogate): `, /^\S$/u.test(surrogate));
+log(String.raw`/\ud83c\udf4c{2}/.test(surrogate.repeat(2)): `, /\ud83c\udf4c{2}/.test(surrogate.repeat(2)));
+log(String.raw`/\ud83c\udf4c{2}/u.test(surrogate.repeat(2)): `, /\ud83c\udf4c{2}/u.test(surrogate.repeat(2)));
 console.groupEnd();
 
-console.group('match for unicode points');
-log(String.raw`/\u{1F34C}/u.test(banana): `, /\u{1F34C}/u.test(banana));
-log(String.raw`/^[ab\ud83c\udf4c]$/.test('a'): `, /^[ab\ud83c\udf4c]$/.test('a'));
-log(String.raw`/^[ab\u0061]$/.test('a'): `, /^[ab\u0061]$/.test('a')); // same as previous
-log(String.raw`/^[ab\ud83c\udf4c]$/.test(banana): `, /^[ab\ud83c\udf4c]$/.test(banana));
-log(String.raw`/^[ab\ud83c\udf4c]$/u.test(banana): `, /^[ab\ud83c\udf4c]$/u.test(banana));
-console.groupEnd();
-
-console.group('match one char');
-log(String.raw`/^\S$/.test(banana): `, /^\S$/.test(banana)) // false
-log(String.raw`/^\S$/u.test(banana): `, /^\S$/u.test(banana)) // true
+console.group('unicode sequence length');
+log('Surrogate length: ', surrogate.length);
+log('Unicode point length: ', codePoint.length);
+log('Spread surrogate: ', [...surrogate].length);
+log('Iterate');``
+for (const code of surrogate) {
+    console.log(code);
+}
 console.groupEnd();

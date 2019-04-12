@@ -42,7 +42,6 @@ console.log(format`Date range is ${'2019-03-03T14:01:33.505Z'}:d - ${'2019-03-28
 
 
 
-/* Extra example*/
 function upFirst(value) {
     return typeof value === 'string' ? value.substring(0, 1).toUpperCase() + value.substring(1) : value;
 }

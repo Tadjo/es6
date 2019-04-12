@@ -1,9 +1,9 @@
 const library = (function(value) {
-    const private = Symbol('private');
+    const _private = Symbol('private');
     return {
-        [private]: value,
+        [_private]: value,
         getValue() {
-            return this[private];
+            return this[_private];
         },
     };
 })(2);
