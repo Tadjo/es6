@@ -1,6 +1,8 @@
 function highlight(strings, ...values) {
+    console.group('Params');
     console.log(strings);
     console.log(values);
+    console.groupEnd();
     return strings.reduce((acc, cur, index) => {
         const value = values[index] ? `<span class="highlight">${values[index]}</span>` : '';
         return `${acc}${cur}${value}`;

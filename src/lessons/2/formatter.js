@@ -8,9 +8,9 @@ function format(strings, ...values) {
     const parts = [];
     strings.forEach((value, i) => {
         const part = { value: `${strings[i]}` };
-        const next = strings[i + 1];
         const prevPart = parts[i - 1];
-        // Найти форматтер в следующей строке
+        const next = strings[i + 1];
+        // Если в следующей строке есть токен форматирования, применить соответсвующий обработчик
         Object.keys(formatters).forEach(function(key) {
             if (next && new RegExp(`^${formatters[key].token}`).test(next)) {
                 part.formatter = key;
@@ -21,6 +21,7 @@ function format(strings, ...values) {
         if (prevPart && prevPart.formatter) {
             part.value = part.value.replace(formatters[prevPart.formatter].token, '');
         }
+        // Если к строке не был применен никакой форматтер просто добавим интерполированное значение
         if (!part.formatter) {
             part.value += values[i] || '';
         }
@@ -39,6 +40,7 @@ function formatDate(value) {
 }
 
 console.log(format`Date range is ${'2019-03-03T14:01:33.505Z'}:d - ${'2019-03-28T07:46:35.805Z'}:d`);
+
 
 
 
