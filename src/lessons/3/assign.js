@@ -1,3 +1,4 @@
 /* Object.assign */
-const assign = Object.assign({}, {[Symbol()]: true}); // {Symbol(): true}
+const source = {[Symbol()]: true};
+const assign = Object.assign({}, source); // {Symbol(): true}
 console.log(assign);
