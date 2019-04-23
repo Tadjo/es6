@@ -10,11 +10,14 @@ let title;
 // вложенность
 ({ title: { title } } = { id: 1, title: 'ES6', lesson: { id: 6, title: 'Destructing' } }); // title = 'Destructing'
 ({ title } = null); // TypeError
+({ length }) = 'aaa'; // 3
 
 let x;
 [x] = [1, 2]; // x = 1
 // пропустить первый элемент
 [, x] = [1, 2]; // x = 2
+// вложенность
+[, [x]] = [1, [2]]; // x = 2
 // использование rest при деструктуризации
 [x, ...others] = [1, 2, 3, 4]; // x = 1, others = [2, 3, 4]
 // rest не обязательно должен быть переменной, это может быть pattern

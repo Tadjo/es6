@@ -53,6 +53,10 @@ Object.is(NaN, NaN); // true
 
 [1, 2, NaN].find(Object.is.bind(null, NaN)); // 2
 
+const a = {}, b = {};
+Object.setPrototypeOf(b, a);
+Object.getPrototypeOf(b) === a; // true
+
 // proto
 const ancestor = { getMe: 'yep!!' };
 const descendant = {};
