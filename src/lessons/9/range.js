@@ -44,7 +44,7 @@ class Range3 {
         this.to = to;
     }
     [Symbol.iterator]() {
-        const values = [...Array(Math.abs(this.from - this.to) + 1).keys()].map(index => index + this.from);
+        const values = Array(Math.abs(this.from - this.to) + 1).keys().map(index => index + this.from);
         return values[Symbol.iterator]();
     }
 }
