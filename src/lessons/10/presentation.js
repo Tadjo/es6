@@ -120,6 +120,3 @@ import { Helper, HEIGHT, default as _ } from 'moduleB'; // _ - экспорт п
 export default function () {/* body */};
 export class Helper {};
 export const HEIGHT = 200;
-
-
-
