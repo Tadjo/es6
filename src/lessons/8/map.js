@@ -1,9 +1,10 @@
 const map = new Map();
 const symbol = Symbol();
-map.set(1, '1');
 // ключи могут быть любые значения
-map.set({}, 'object');
-map.set(symbol, 'symbol');
+map.set(1, '1')
+.set({}, 'object')
+.set(symbol, 'symbol')
+.get(symbol); // 'symbol
 
 // Map.keys, values, entries возвращают итераторы
 console.log(...map.keys()); // [1, {}, Symbol(uniq)]
@@ -14,6 +15,7 @@ map.has(symbol); // true
 map.has({}); //false
 map.size // 3
 map.delete(1);
+map.get(1); // undefined
 map.size // 2
 map.clear();
 map.size // 0

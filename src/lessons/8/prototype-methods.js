@@ -6,7 +6,7 @@ console.log(iterator.next()); // { done: false, value: [0, 1] }
 const valueIterators = target.values(); // Итератор значений
 console.log(valueIterators.next()); // { done: false, value: 1 }
 
-const keyIterators = target.values(); // Итератор ключей
+const keyIterators = target.keys(); // Итератор ключей
 console.log(keyIterators.next()); // { done: false, value: 0 }
 
 console.log(target.find(value => value === 5/*, thisArg(optional) */)); // 5
