@@ -5,3 +5,5 @@
 
     createWidget();
 })();
+
+console.log(window.createWidget);
