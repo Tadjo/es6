@@ -1,5 +1,5 @@
 (function() {
-    function createWidget () { /* some logic */ }
+    function createWidget () { console.log('start') }
 
     /* Do what you want */
 

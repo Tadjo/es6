@@ -1,6 +1,9 @@
 // library.js
-define(['lodash', 'moment'], function(_, moment) {
-    function sortByDate(date, order) {};
+define('amd_module',['lodash', 'moment'], function(_, moment) {
+    console.log(moment(new Date()).format('LLL'));
+    console.log(_.fill([0, 0, 0], 'filler'));
+    function sortByDate(date, order) {
+    };
     function groupByDate(date) {};
     return {
         sortByDate,
