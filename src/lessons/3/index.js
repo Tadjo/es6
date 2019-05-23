@@ -8,5 +8,5 @@
 // import './hasInstance.js';
 // import './toPrimitive.js';
 // import './toStringTag.js';
-// import './isConcatSpreadable.js';
 // import './unscopable.js';
+import './isConcatSpreadable.js';

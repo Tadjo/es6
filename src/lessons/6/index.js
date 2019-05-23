@@ -3,5 +3,5 @@
 // import './getOwnProperty.js';
 // import './is.js';
 // import './literal.js';
-// import './proto.js';
+import './proto.js';
 // import './short.js';

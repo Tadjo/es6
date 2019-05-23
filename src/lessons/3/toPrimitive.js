@@ -1,7 +1,6 @@
 const course = {
     lessons: ['tick', 'tack'],
     [Symbol.toPrimitive](hint) { // hint is (number | string | default)
-        console.log(hint);
         switch (hint) {
             case 'number':
                 return this.lessons.length;

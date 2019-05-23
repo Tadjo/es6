@@ -1,6 +1,5 @@
 const map = new Map();
 const symbol = Symbol();
-// ключи могут быть любые значения
 map.set(1, '1')
 .set({}, 'object')
 .set(symbol, 'symbol')

@@ -23,4 +23,4 @@ try {
 }
 console.log(String(sym)); // Symbol(conversion)
 console.log(sym.toString()); // Symbol(conversion)
-Object.prototype.toString.call(sym); // '[object Symbol]'
+Object.prototype.toString.call(null, sym); // '[object Symbol]'

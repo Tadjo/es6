@@ -8,7 +8,7 @@ const charCode = surrogate.charCodeAt(0);
 console.log('codePointAt: ', point);
 console.log('charCode: ', charCode);
 console.log('fromCodePoint: ', String.fromCodePoint(point)); // 🍌
-console.log('fromCodePoint index = 1: ', String.fromCodePoint(surrogate.codePointAt(1))); //"�"
+console.log('fromCodePoint index = 1: ', String.fromCodePoint(surrogate.codePointAt(1))); // "�"
 console.groupEnd();
 
 console.group('match code point');
@@ -31,6 +31,7 @@ console.group('unicode sequence length');
 log('Surrogate length: ', surrogate.length);
 log('Unicode point length: ', codePoint.length);
 log('Spread surrogate: ', [...surrogate].length);
+log('Spread surrogate: ', [...codePoint].length);
 log('Iterate');``
 for (const code of surrogate) {
     console.log(code);

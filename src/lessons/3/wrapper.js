@@ -1,7 +1,7 @@
-/* Wrapper */
-const wrapper = Object(sym);
+const toWrap = Symbol();
+const wrapper = Object(toWrap);
 console.log(typeof wrapper); // object
 console.log(wrapper instanceof Symbol); // true
-console.log(wrapper === sym); // false
-console.log(wrapper == sym); // true
-console.log({[wrapper]: 1}[sym]); // 1
+console.log(wrapper === toWrap); // false
+console.log(wrapper == toWrap); // true
+console.log({[wrapper]: 1}[toWrap]); // 1

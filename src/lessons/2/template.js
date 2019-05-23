@@ -8,10 +8,10 @@ this action`);
 
 console.log(['You have', 'no', 'permission for', 'this action'].join('\n')); // es5
 /* or */
-console.log('You have \n'
-            + 'no \n' +
-            + 'permission for \n' +
-            + 'this action \n');
+console.log('You have \n' +
+            'no \n' +
+            'permission for \n' +
+            'this action \n');
 
 /* Проблема */
 const indent = (() => `You have
